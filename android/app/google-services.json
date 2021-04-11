@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "403818949976",
+    "project_id": "teknolojikimyaservis",
+    "storage_bucket": "teknolojikimyaservis.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:403818949976:android:ba3d8f165aa8e1e6f0892d",
+        "android_client_info": {
+          "package_name": "com.mertiva.teknoloji_kimya_servis"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "403818949976-qjjsrmo1v2gtsra8d0psln95ju374kng.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCt-UNaYpQOdq61_cZQdRgHztIrWzOALKE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "403818949976-qjjsrmo1v2gtsra8d0psln95ju374kng.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
