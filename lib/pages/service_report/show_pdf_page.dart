@@ -3,8 +3,8 @@ import 'dart:io';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pdf_flutter/pdf_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 import 'package:teknoloji_kimya_servis/api/api_urls.dart';
 import 'package:teknoloji_kimya_servis/api/post_apis.dart';
 import 'package:teknoloji_kimya_servis/api/put_apis.dart';
@@ -77,7 +77,9 @@ class _ShowPdfPageState extends State<ShowPdfPage> {
               try {
                 EralpHelper.startProgress();
                 final _response = await http.post(
-                  ApiUrls.serviceReport,
+                  Uri.parse(
+                    ApiUrls.serviceReport,
+                  ),
                   headers: {
                     'Content-Type': 'application/json',
                     "token": _authRepository.apiUser.token,
@@ -472,11 +474,8 @@ class _ShowPdfPageState extends State<ShowPdfPage> {
       body: Column(
         children: [
           Expanded(
-            child: PDF.file(
+            child: SfPdfViewer.file(
               widget.pdf,
-              placeHolder: Center(
-                child: CircularProgressIndicator(),
-              ),
             ),
           ),
           Row(

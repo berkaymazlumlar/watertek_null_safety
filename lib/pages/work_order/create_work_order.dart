@@ -1,7 +1,8 @@
 import 'dart:io';
-
+import 'dart:ui' as ui;
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
@@ -419,7 +420,9 @@ class _CreateWorkOrderState extends State<CreateWorkOrder> {
         build: (pw.Context context) {
           return pw.Center(
             child: pw.Expanded(
-              child: pw.Image(image),
+              child: pw.Image(
+                pw.ImageProxy(image),
+              ),
             ),
           );
         },
@@ -427,7 +430,9 @@ class _CreateWorkOrderState extends State<CreateWorkOrder> {
     );
     final directory = await getApplicationDocumentsDirectory();
     final file = File('${directory.path}/${DateTime.now()}.pdf');
-    file.writeAsBytesSync(doc.save());
+    file.writeAsBytesSync(
+      await doc.save(),
+    );
     print("file created successfully, path is ${file.path}");
 
     final reference =
@@ -468,5 +473,24 @@ class _CreateWorkOrderState extends State<CreateWorkOrder> {
     }
 
     return doc.save();
+  }
+
+  Future<PdfImage> wrapWidget(
+    PdfDocument document, {
+    @required GlobalKey key,
+    int width,
+    int height,
+    double pixelRatio = 1.0,
+  }) async {
+    assert(key != null);
+    assert(pixelRatio != null && pixelRatio > 0);
+
+    final RenderRepaintBoundary wrappedWidget =
+        key.currentContext.findRenderObject();
+    final image = await wrappedWidget.toImage(pixelRatio: pixelRatio);
+    final byteData = await image.toByteData(format: ui.ImageByteFormat.rawRgba);
+    final imageData = byteData.buffer.asUint8List();
+    return PdfImage(document,
+        image: imageData, width: image.width, height: image.height);
   }
 }

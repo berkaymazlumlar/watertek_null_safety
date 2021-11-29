@@ -16,7 +16,9 @@ class PostApi {
     @required String password,
   }) async {
     final _response = await http.post(
-      ApiUrls.loginUrl,
+      Uri.parse(
+        ApiUrls.loginUrl,
+      ),
       body: {
         "username": username,
         "password": password,
@@ -37,7 +39,7 @@ class PostApi {
     @required String phone,
   }) async {
     final _response = await http.post(
-      ApiUrls.signUpUrl,
+      Uri.parse(ApiUrls.signUpUrl),
       body: {
         "username": username,
         "password": password,
@@ -59,7 +61,7 @@ class PostApi {
     @required String materialId,
   }) async {
     final _response = await http.post(
-      ApiUrls.product,
+      Uri.parse(ApiUrls.product),
       headers: {
         "token": _authRepository.apiUser.token,
       },
@@ -83,7 +85,7 @@ class PostApi {
   }) async {
     try {
       final _response = await http.post(
-        ApiUrls.company,
+        Uri.parse(ApiUrls.company),
         headers: {
           "token": _authRepository.apiUser.token,
         },
@@ -130,7 +132,7 @@ class PostApi {
       );
 
       final _response = await http.post(
-        "https://teknomkimya.herokuapp.com/spare_part",
+        Uri.parse("https://teknomkimya.herokuapp.com/spare_part"),
         headers: {
           "token": _authRepository.apiUser.token,
           'Content-Type': 'application/json'
@@ -166,7 +168,7 @@ class PostApi {
   }) async {
     try {
       final _response = await http.post(
-        ApiUrls.sales,
+        Uri.parse(ApiUrls.sales),
         headers: {
           "token": _authRepository.apiUser.token,
         },
@@ -197,7 +199,7 @@ class PostApi {
   }) async {
     try {
       final _response = await http.post(
-        ApiUrls.getSale,
+        Uri.parse(ApiUrls.getSale),
         headers: {
           "token": _authRepository.apiUser.token,
         },
@@ -223,7 +225,7 @@ class PostApi {
   }) async {
     try {
       final _response = await http.post(
-        ApiUrls.periodicMaintenance,
+        Uri.parse(ApiUrls.periodicMaintenance),
         headers: {
           'Content-Type': 'application/json',
           "token": _authRepository.apiUser.token,
@@ -257,7 +259,7 @@ class PostApi {
   }) async {
     try {
       final _response = await http.post(
-        ApiUrls.workOrder,
+        Uri.parse(ApiUrls.workOrder),
         headers: {
           "token": _authRepository.apiUser.token,
         },
@@ -290,7 +292,7 @@ class PostApi {
   }) async {
     try {
       final _response = await http.post(
-        ApiUrls.healthReport,
+        Uri.parse(ApiUrls.healthReport),
         headers: {
           "token": _authRepository.apiUser.token,
         },
@@ -324,7 +326,7 @@ class PostApi {
   }) async {
     try {
       final _response = await http.post(
-        ApiUrls.workCode,
+        Uri.parse(ApiUrls.workCode),
         headers: {
           "token": _authRepository.apiUser.token,
         },
@@ -352,7 +354,7 @@ class PostApi {
   static Future<dynamic> addServiceReport() async {
     try {
       final _response = await http.post(
-        ApiUrls.workOrder,
+        Uri.parse(ApiUrls.workOrder),
         headers: {
           "token": _authRepository.apiUser.token,
         },
@@ -377,7 +379,7 @@ class PostApi {
   }) async {
     try {
       final _response = await http.post(
-        ApiUrls.material,
+        Uri.parse(ApiUrls.material),
         headers: {
           "token": _authRepository.apiUser.token,
         },
@@ -407,7 +409,7 @@ class PostApi {
   }) async {
     try {
       final _response = await http.post(
-        ApiUrls.customerRequest,
+        Uri.parse(ApiUrls.customerRequest),
         headers: {
           "token": _authRepository.apiUser.token,
         },
@@ -435,7 +437,7 @@ class PostApi {
   }) async {
     try {
       final _response = await http.post(
-        ApiUrls.exploration,
+        Uri.parse(ApiUrls.exploration),
         headers: {
           "token": _authRepository.apiUser.token,
           'Content-Type': 'application/json',
@@ -461,7 +463,7 @@ class PostApi {
   }) async {
     try {
       final _response = await http.post(
-        ApiUrls.serviceReportSpareParts,
+        Uri.parse(ApiUrls.serviceReportSpareParts),
         headers: {
           "token": _authRepository.apiUser.token,
           'Content-Type': 'application/json',

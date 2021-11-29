@@ -37,7 +37,7 @@ class _ShowDrawsPageState extends State<ShowDrawsPage> {
                 itemCount: snapshot.data.docs.length,
                 itemBuilder: (BuildContext context, int index) {
                   final String _imageUrl =
-                      snapshot.data.docs[index].data()["draw_path"];
+                      snapshot.data.docs[index].get("draw_path");
                   return Image.network(
                     "$_imageUrl",
                   );

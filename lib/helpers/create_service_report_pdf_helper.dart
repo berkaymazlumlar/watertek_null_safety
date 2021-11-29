@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
-import 'package:pdf/widgets/font.dart';
+import 'package:pdf/widgets.dart';
 import 'package:teknoloji_kimya_servis/helpers/date_helper.dart';
 import 'package:teknoloji_kimya_servis/repositories/auth/auth_repository.dart';
 import 'package:teknoloji_kimya_servis/repositories/service_report/service_report_data_repository.dart';
@@ -59,7 +59,7 @@ class CreateServiceReportPdfHelper {
               pw.Row(
                 mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
                 children: [
-                  pw.Image.provider(image, width: 150, height: 75),
+                  pw.Image(image, width: 150, height: 75),
                   pw.Text(
                     "${DateHelper.getStringDateTR(DateTime.now())}",
                     style: pw.TextStyle(
@@ -666,7 +666,7 @@ class CreateServiceReportPdfHelper {
                         text: "İmza: ",
                         value: workerSign == null
                             ? null
-                            : pw.Image.provider(
+                            : pw.Image(
                                 pw.MemoryImage(workerSign),
                                 width: 50,
                                 height: 50,
@@ -686,7 +686,7 @@ class CreateServiceReportPdfHelper {
                         text: "İmza: ",
                         value: customerSign == null
                             ? null
-                            : pw.Image.provider(
+                            : pw.Image(
                                 pw.MemoryImage(customerSign),
                                 width: 50,
                                 height: 50,
@@ -704,7 +704,7 @@ class CreateServiceReportPdfHelper {
     final directory = await getApplicationDocumentsDirectory();
     final file = File('${directory.path}/${DateTime.now()}.pdf');
 
-    File _myPdf = await file.writeAsBytes(pdf.save());
+    File _myPdf = await file.writeAsBytes(await pdf.save());
     // OpenFile.open(_myPdf.path);
     return _myPdf;
     // NavigatorHelper(context).goTo(

@@ -5,7 +5,6 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pdf_flutter/pdf_flutter.dart';
 import 'package:teknoloji_kimya_servis/blocs/work_order_images/work_order_images_bloc.dart';
 import 'package:teknoloji_kimya_servis/blocs/work_order_updates/work_order_status_bloc.dart';
 import 'package:teknoloji_kimya_servis/helpers/camera_or_gallery_helper.dart';

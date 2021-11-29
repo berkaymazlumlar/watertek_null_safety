@@ -580,8 +580,6 @@ class _AddExplorationReportPageState extends State<AddExplorationReportPage> {
         ],
       ),
       floatingActionButton: SpeedDial(
-        marginEnd: 18,
-        marginBottom: 20,
         // animatedIcon: AnimatedIcons.menu_close,
         // animatedIconTheme: IconThemeData(size: 22.0),
         /// This is ignored if animatedIcon is non null

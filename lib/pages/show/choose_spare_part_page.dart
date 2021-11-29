@@ -175,31 +175,31 @@ class _ChooseSparePartState extends State<ChooseSparePart> {
     );
   }
 
-  void _printScreen(final _printKey) {
-    Printing.layoutPdf(onLayout: (PdfPageFormat format) async {
-      final doc = pw.Document();
+  // void _printScreen(final _printKey) {
+  //   Printing.layoutPdf(onLayout: (PdfPageFormat format) async {
+  //     final doc = pw.Document();
 
-      final image = await wrapWidget(
-        doc.document,
-        key: _printKey,
-        pixelRatio: 2.0,
-      );
+  //     final image = await wrapWidget(
+  //       doc.document,
+  //       key: _printKey,
+  //       pixelRatio: 2.0,
+  //     );
 
-      doc.addPage(
-        pw.Page(
-          pageFormat: PdfPageFormat.a3,
-          build: (pw.Context context) {
-            return pw.Center(
-              child: pw.Expanded(
-                child: pw.Image(image),
-              ),
-            );
-          },
-        ),
-      );
-      // final file = File('example.pdf');
-      // file.writeAsBytesSync(doc.save());
-      return doc.save();
-    });
-  }
+  //     doc.addPage(
+  //       pw.Page(
+  //         pageFormat: PdfPageFormat.a3,
+  //         build: (pw.Context context) {
+  //           return pw.Center(
+  //             child: pw.Expanded(
+  //               child: pw.Image(image),
+  //             ),
+  //           );
+  //         },
+  //       ),
+  //     );
+  //     // final file = File('example.pdf');
+  //     // file.writeAsBytesSync(doc.save());
+  //     return doc.save();
+  //   });
+  // }
 }

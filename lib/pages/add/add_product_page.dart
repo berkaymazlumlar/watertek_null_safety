@@ -224,56 +224,56 @@ class _AddItemPageState extends State<AddItemPage> {
                   child: MyRaisedButton(
                     buttonText: "Ekle",
                     onPressed: () async {
-                      if (_itemNameController.text.length <= 0) {
-                        MyFlushbarHelper(context: context).showInfoFlushbar(
-                          title: "Ürün adı",
-                          message:
-                              "Ürün ekleyebilmeniz için ürün adını girmelisiniz",
-                        );
-                        return;
-                      }
-                      if (_modelController.text.length <= 0) {
-                        MyFlushbarHelper(context: context).showInfoFlushbar(
-                          title: "Model",
-                          message:
-                              "Ürün ekleyebilmeniz için model girmelisiniz",
-                        );
-                        return;
-                      }
+                      // if (_itemNameController.text.length <= 0) {
+                      //   MyFlushbarHelper(context: context).showInfoFlushbar(
+                      //     title: "Ürün adı",
+                      //     message:
+                      //         "Ürün ekleyebilmeniz için ürün adını girmelisiniz",
+                      //   );
+                      //   return;
+                      // }
+                      // if (_modelController.text.length <= 0) {
+                      //   MyFlushbarHelper(context: context).showInfoFlushbar(
+                      //     title: "Model",
+                      //     message:
+                      //         "Ürün ekleyebilmeniz için model girmelisiniz",
+                      //   );
+                      //   return;
+                      // }
 
-                      try {
-                        EralpHelper.startProgress();
-                        final _response = await PostApi.addProduct(
-                          name: _itemNameController.text,
-                          model: _modelController.text,
-                          materialId: _chooseMaterialProvider
-                              .choosedMaterials[index].id
-                              .toString(),
-                        );
-                        if (_response is bool) {
-                          BlocProvider.of<ProductListBloc>(context)
-                              .add(ClearProductListEvent());
-                          Navigator.pop(context);
-                          MyFlushbarHelper(context: context)
-                              .showSuccessFlushbar(
-                            title: "Başarılı",
-                            message: "Ürün başarıyla eklendi",
-                          );
-                        } else {
-                          MyFlushbarHelper(context: context).showErrorFlushbar(
-                            title: "Hata",
-                            message:
-                                "Ürün eklenirken bir hata ile karşılaşıldı: $_response",
-                          );
-                        }
-                      } catch (e) {
-                        MyFlushbarHelper(context: context).showErrorFlushbar(
-                          title: "Hata",
-                          message: "Ürün eklenirken bir hata ile karşılaşıldı",
-                        );
-                      } finally {
-                        EralpHelper.stopProgress();
-                      }
+                      // try {
+                      //   EralpHelper.startProgress();
+                      //   final _response = await PostApi.addProduct(
+                      //     name: _itemNameController.text,
+                      //     model: _modelController.text,
+                      //     materialId: _chooseMaterialProvider
+                      //         .choosedMaterials[index].id
+                      //         .toString(),
+                      //   );
+                      //   if (_response is bool) {
+                      //     BlocProvider.of<ProductListBloc>(context)
+                      //         .add(ClearProductListEvent());
+                      //     Navigator.pop(context);
+                      //     MyFlushbarHelper(context: context)
+                      //         .showSuccessFlushbar(
+                      //       title: "Başarılı",
+                      //       message: "Ürün başarıyla eklendi",
+                      //     );
+                      //   } else {
+                      //     MyFlushbarHelper(context: context).showErrorFlushbar(
+                      //       title: "Hata",
+                      //       message:
+                      //           "Ürün eklenirken bir hata ile karşılaşıldı: $_response",
+                      //     );
+                      //   }
+                      // } catch (e) {
+                      //   MyFlushbarHelper(context: context).showErrorFlushbar(
+                      //     title: "Hata",
+                      //     message: "Ürün eklenirken bir hata ile karşılaşıldı",
+                      //   );
+                      // } finally {
+                      //   EralpHelper.stopProgress();
+                      // }
                     },
                   ),
                 ),

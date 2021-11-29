@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pdf/pdf.dart';
+import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 import 'package:teknoloji_kimya_servis/models/api_service_report.dart';
-import 'package:pdf_flutter/pdf_flutter.dart';
 import 'package:teknoloji_kimya_servis/repositories/auth/auth_repository.dart';
 import 'package:teknoloji_kimya_servis/utils/locator.dart';
 
@@ -39,7 +39,7 @@ class _ServiceReportDetailPageState extends State<ServiceReportDetailPage> {
                   child: Container(
                     height: MediaQuery.of(context).size.height * 0.85,
                     width: MediaQuery.of(context).size.width,
-                    child: PDF.network(widget.serviceReport.pdfUrl),
+                    child: SfPdfViewer.network(widget.serviceReport.pdfUrl),
                   ),
                 ),
               ],

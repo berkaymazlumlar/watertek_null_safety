@@ -10,7 +10,7 @@ AuthRepository _authRepository = locator<AuthRepository>();
 class DeleteApi {
   static Future<bool> deleteProduct(String id) async {
     final _response = await http.delete(
-      "${ApiUrls.product}/$id",
+      Uri.parse("${ApiUrls.product}/$id"),
       headers: {
         "token": "${_authRepository.apiUser.token}",
       },
@@ -26,7 +26,7 @@ class DeleteApi {
   static Future<bool> deleteCompany(String id) async {
     try {
       final _response = await http.delete(
-        "${ApiUrls.company}/$id",
+        Uri.parse("${ApiUrls.company}/$id"),
         headers: {
           "token": "${_authRepository.apiUser.token}",
         },

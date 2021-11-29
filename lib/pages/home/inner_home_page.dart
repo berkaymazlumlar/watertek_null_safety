@@ -11,34 +11,29 @@ class InnerHomePage extends StatefulWidget {
 }
 
 class _InnerHomePageState extends State<InnerHomePage> {
-  FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
+  FirebaseMessaging _firebaseMessaging = FirebaseMessaging.instance;
 
   @override
   void initState() {
     super.initState();
     NotificationHelper(context: context).initializeLocalNotification();
 
-    _firebaseMessaging.requestNotificationPermissions(
-      const IosNotificationSettings(
-          sound: true, badge: true, alert: true, provisional: false),
-    );
-    _firebaseMessaging.configure(
-      onMessage: (Map<String, dynamic> message) async {
-        print("onMessage: $message");
+    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+      try {
+        NotificationHelper(context: context).showNotification(message.data);
+      } catch (e) {
+        print("firebaseMessaging onMessage, error: $e");
+      }
+    });
 
-        try {
-          NotificationHelper(context: context).showNotification(message);
-        } catch (e) {
-          print("firebaseMessaging onMessage, error: $e");
-        }
-      },
-      onLaunch: (Map<String, dynamic> message) async {
-        print("onLaunch: $message");
-      },
-      onResume: (Map<String, dynamic> message) async {
-        print("onResume: $message");
-      },
-    );
+    FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
+      print("onMessageOpenedApp: $message");
+    });
+
+    FirebaseMessaging.onBackgroundMessage((RemoteMessage message) {
+      print("onBackgroundMessage: $message");
+    });
+
     _firebaseMessaging.getToken().then((onValue) {
       debugPrint("FIREBASE TOKEN: " + onValue);
     });

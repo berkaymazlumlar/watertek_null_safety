@@ -2224,7 +2224,9 @@ class _CreateServiceReportState extends State<CreateServiceReport> {
     try {
       EralpHelper.startProgress();
       final _response = await http.post(
-        ApiUrls.serviceReport,
+        Uri.parse(
+          ApiUrls.serviceReport,
+        ),
         headers: {
           'Content-Type': 'application/json',
           "token": _authRepository.apiUser.token,

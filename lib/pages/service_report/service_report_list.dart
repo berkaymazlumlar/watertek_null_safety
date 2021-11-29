@@ -1,11 +1,9 @@
 import 'dart:io';
 import 'dart:typed_data';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:pdf/widgets/font.dart';
 import 'package:provider/provider.dart';
 import 'package:teknoloji_kimya_servis/blocs/service_report/service_report_bloc.dart';
 import 'package:teknoloji_kimya_servis/helpers/date_helper.dart';
@@ -24,8 +22,8 @@ class ServiceReportListPage extends StatefulWidget {
 }
 
 class _ServiceReportListPageState extends State<ServiceReportListPage> {
-  Font myFont;
-  Font myExtraBoldFont;
+  var myFont;
+  var myExtraBoldFont;
   @override
   void initState() {
     super.initState();
@@ -190,7 +188,7 @@ class _ServiceReportListPageState extends State<ServiceReportListPage> {
               pw.Row(
                 mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
                 children: [
-                  pw.Image.provider(image, width: 150, height: 75),
+                  pw.Image(image, width: 150, height: 75),
                   pw.Text(
                     "${DateHelper.getStringDateTR(DateTime.now())}",
                     style: pw.TextStyle(
@@ -503,7 +501,7 @@ class _ServiceReportListPageState extends State<ServiceReportListPage> {
                       ),
                       getRowedSignText(
                         text: "İmza: ",
-                        value: pw.Image.provider(
+                        value: pw.Image(
                           workerSign,
                           width: 50,
                           height: 50,
@@ -520,7 +518,7 @@ class _ServiceReportListPageState extends State<ServiceReportListPage> {
                       ),
                       getRowedSignText(
                         text: "İmza: ",
-                        value: pw.Image.provider(
+                        value: pw.Image(
                           customerSign,
                           width: 50,
                           height: 50,

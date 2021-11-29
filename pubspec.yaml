@@ -3,7 +3,7 @@ description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -27,60 +27,68 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   http:
-  barcode: ^1.17.1
+  barcode: ^2.1.0
   flutter_bloc: ^6.0.6
   get_it: ^5.0.1
   equatable: ^1.2.5
   provider: ^4.3.2+2
   flutter_slidable: ^0.5.7
-  shared_preferences: ^0.5.12+2
-  cloud_firestore: ^0.14.2
-  firebase_core: ^0.5.3
+  shared_preferences: ^2.0.9
+  cloud_firestore: ^3.1.0
+  firebase_core: ^1.10.0
   intl:
   flutter_speed_dial: ^3.0.5
-  pdf: ^1.11.2
-  path_provider: ^1.6.22
+  pdf: ^3.6.3
+  path_provider: ^2.0.7
   open_file: ^3.0.3
   lazy_load_scrollview: ^1.1.0
   flushbar: ^1.10.4
   flutter_snake_navigationbar: ^0.4.2
-  barcode_image: ^1.2.0
-  qr_flutter: ^3.2.0
-  printing: ^3.7.2
+  barcode_image: ^2.0.0
+  qr_flutter: ^4.0.0
+  printing: ^5.6.3
   url_launcher: ^6.0.2
-  firebase_storage: ^5.2.0
-  pdf_flutter: ^1.1.3
-  flutter_barcode_scanner: ^1.0.1
-  image_picker: ^0.6.7+21
+  # pdf_flutter:
+  #   git: https://github.com/erluxman/pdf_flutter
+  flutter_barcode_scanner: ^2.0.0
+  image_picker:
   photo_view: ^0.10.3
   webview_flutter: ^1.0.7
   table_calendar: ^2.3.3
   collection: ^1.14.13
-  google_fonts: ^1.1.2
-  dio: ^3.0.10
+  # google_fonts: ^1.1.2
+  dio: ^4.0.4
   convex_bottom_bar: ^2.6.0
   flutter_emoji: ^2.2.1+1
-  flutter_local_notifications: ^4.0.1+2
-  timezone: ^0.6.1
-  flutter_native_timezone: any
-  geolocator: ^6.2.1
-  video_compress: ^2.1.0
+  flutter_local_notifications: ^9.1.4
+  timezone: ^0.8.0
+  flutter_native_timezone: ^2.0.0
+  geolocator: ^7.7.1
   chewie: ^0.12.2
   cupertino_icons: ^1.0.0
   video_player: ^1.0.1
-  cached_network_image: ^2.5.0
+  cached_network_image: ^3.1.0+1
   animate_do: any
   firebase_messaging: any
   # get: ^3.26.0
   background_locator: ^1.5.0+1
-  geocoder: ^0.2.1
+  geocoder:
+    git:
+      url: https://github.com/nguyenxdat/flutter_geocoder.git
+      ref: master
   google_maps_flutter: any
   permission_handler: any
   painter: ^0.4.0
   gallery_saver: ^2.0.3
   file_picker: any
-  esys_flutter_share: ^1.0.2
-
+  # esys_flutter_share: ^1.0.2
+  firebase_storage: ^10.1.0
+  share: ^2.0.4
+  esys_flutter_share:
+    git:
+      url: https://github.com/cihadturhan/esys-flutter-share.git
+      ref: nullsafety+embedding-2
+  syncfusion_flutter_pdfviewer: ^19.3.55-beta
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -89,20 +97,16 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-
-
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
-  
-  
+
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/logo.png

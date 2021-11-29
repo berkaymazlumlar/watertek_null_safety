@@ -26,7 +26,7 @@ AuthRepository _authRepository = locator<AuthRepository>();
 class GetApi {
   static Future<ApiCompany> getCompany() async {
     final _response = await http.get(
-      "${ApiUrls.company}?order=desc",
+      Uri.parse("${ApiUrls.company}?order=desc"),
       headers: {
         "token": "${_authRepository.apiUser.token}",
       },
@@ -41,7 +41,9 @@ class GetApi {
 
   static Future<ApiSparePart> getSparePart() async {
     final _response = await http.get(
-      "${ApiUrls.baseUrl}/i/j/spare_part/product?filter=t1.productId=t2.id&fields=t1.*,t2.name productName,t2.model as productModel, t2.createdAt as productCreatedAt&order=desc",
+      Uri.parse(
+        "${ApiUrls.baseUrl}/i/j/spare_part/product?filter=t1.productId=t2.id&fields=t1.*,t2.name productName,t2.model as productModel, t2.createdAt as productCreatedAt&order=desc",
+      ),
       headers: {
         "token": "${_authRepository.apiUser.token}",
       },
@@ -88,7 +90,9 @@ class GetApi {
     try {
       // EralpHelper.startProgress();
       final _response = await http.get(
-        "${ApiUrls.baseUrl}/i/j/periodic_maintenance/user?filter=t1.userId=t2.id,t1.id=$id&fields=t1.*,t2.fullname as companyName,t2.phone as companyPhone, t2.createdAt as companyCreatedAt&order=desc",
+        Uri.parse(
+          "${ApiUrls.baseUrl}/i/j/periodic_maintenance/user?filter=t1.userId=t2.id,t1.id=$id&fields=t1.*,t2.fullname as companyName,t2.phone as companyPhone, t2.createdAt as companyCreatedAt&order=desc",
+        ),
         headers: {
           "token": "${_authRepository.apiUser.token}",
         },
@@ -111,7 +115,9 @@ class GetApi {
     try {
       EralpHelper.startProgress();
       final _response = await http.get(
-        "${ApiUrls.users}/$userId",
+        Uri.parse(
+          "${ApiUrls.users}/$userId",
+        ),
         headers: {
           "token": "${_authRepository.apiUser.token}",
         },
@@ -145,7 +151,9 @@ class GetApi {
     }
     print("url: $_url");
     final _response = await http.get(
-      _url,
+      Uri.parse(
+        _url,
+      ),
       headers: {
         "token": "${_authRepository.apiUser.token}",
       },
@@ -168,7 +176,9 @@ class GetApi {
     }
     print("url: $_url");
     final _response = await http.get(
-      _url,
+      Uri.parse(
+        _url,
+      ),
       headers: {
         "token": "${_authRepository.apiUser.token}",
       },
@@ -204,7 +214,9 @@ class GetApi {
     print("url: $_url");
     try {
       final _response = await http.get(
-        _url,
+        Uri.parse(
+          _url,
+        ),
         headers: {
           "token": "${_authRepository.apiUser.token}",
         },
@@ -233,7 +245,9 @@ class GetApi {
     print("url: $_url");
 
     final _response = await http.get(
-      _url,
+      Uri.parse(
+        _url,
+      ),
       headers: {
         "token": "${_authRepository.apiUser.token}",
       },
@@ -256,7 +270,9 @@ class GetApi {
     }
     print("url: $_url");
     final _response = await http.get(
-      _url,
+      Uri.parse(
+        _url,
+      ),
       headers: {
         "token": "${_authRepository.apiUser.token}",
       },
@@ -280,7 +296,9 @@ class GetApi {
     try {
       EralpHelper.startProgress();
       final _response = await http.get(
-        _url,
+        Uri.parse(
+          _url,
+        ),
         headers: {
           "token": "${_authRepository.apiUser.token}",
         },
@@ -310,7 +328,9 @@ class GetApi {
     try {
       EralpHelper.startProgress();
       final _response = await http.get(
-        _url,
+        Uri.parse(
+          _url,
+        ),
         headers: {
           "token": "${_authRepository.apiUser.token}",
         },
@@ -340,7 +360,9 @@ class GetApi {
     try {
       EralpHelper.startProgress();
       final _response = await http.get(
-        _url,
+        Uri.parse(
+          _url,
+        ),
         headers: {
           "token": "${_authRepository.apiUser.token}",
         },
@@ -368,7 +390,9 @@ class GetApi {
           "https://teknomkimya.herokuapp.com/i/j/customer_request/user?filter=t1.userId=t2.id,t1.userId=$customerId&fields=t1.*,t2.fullname as userFullname,t2.phone as userphone&order=desc";
     }
     final _response = await http.get(
-      _url,
+      Uri.parse(
+        _url,
+      ),
       headers: {
         "token": "${_authRepository.apiUser.token}",
       },
@@ -384,7 +408,9 @@ class GetApi {
 
   static Future<ApiExploration> getExplorationList() async {
     final _response = await http.get(
-      "${ApiUrls.baseUrl}/i/j/exploration/user?filter=t1.userId=t2.id&fields=t1.*,t2.fullName as companyName,t2.phone as companyPhone&order=desc",
+      Uri.parse(
+        "${ApiUrls.baseUrl}/i/j/exploration/user?filter=t1.userId=t2.id&fields=t1.*,t2.fullName as companyName,t2.phone as companyPhone&order=desc",
+      ),
       headers: {
         "token": "${_authRepository.apiUser.token}",
       },
@@ -399,7 +425,9 @@ class GetApi {
 
   static Future<ApiHealthReport> getHealthReport() async {
     final _response = await http.get(
-      "${ApiUrls.baseUrl}/i/j/health_report/user?filter=t1.userId=t2.id&fields=t1.*,t2.fullname as workerName,t2.phone as workerPhone&order=desc",
+      Uri.parse(
+        "${ApiUrls.baseUrl}/i/j/health_report/user?filter=t1.userId=t2.id&fields=t1.*,t2.fullname as workerName,t2.phone as workerPhone&order=desc",
+      ),
       headers: {
         "token": "${_authRepository.apiUser.token}",
       },
@@ -416,7 +444,9 @@ class GetApi {
     try {
       EralpHelper.startProgress();
       final _response = await http.get(
-        "${ApiUrls.users}?order=desc&filter=isCustomer=1",
+        Uri.parse(
+          "${ApiUrls.users}?order=desc&filter=isCustomer=1",
+        ),
         headers: {
           "token": "${_authRepository.apiUser.token}",
         },
@@ -438,7 +468,9 @@ class GetApi {
     try {
       EralpHelper.startProgress();
       final _response = await http.get(
-        "${ApiUrls.getWorkCode}?order=desc",
+        Uri.parse(
+          "${ApiUrls.getWorkCode}?order=desc",
+        ),
         headers: {
           "token": "${_authRepository.apiUser.token}",
         },
@@ -460,7 +492,9 @@ class GetApi {
     try {
       EralpHelper.startProgress();
       final _response = await http.get(
-        "${ApiUrls.material}?order=desc",
+        Uri.parse(
+          "${ApiUrls.material}?order=desc",
+        ),
         headers: {
           "token": "${_authRepository.apiUser.token}",
         },

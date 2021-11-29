@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:pdf_flutter/pdf_flutter.dart';
+import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
 class ShowExplorationPdfPage extends StatefulWidget {
   final int explorationId;
@@ -35,13 +35,9 @@ class _ShowExplorationPdfPageState extends State<ShowExplorationPdfPage> {
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             if (snapshot.hasData) {
-              final String _pdfUrl =
-                  snapshot.data.docs.first.data()["pdf_path"];
-              return PDF.network(
+              final String _pdfUrl = snapshot.data.docs.first.get("pdf_path");
+              return SfPdfViewer.network(
                 _pdfUrl,
-                placeHolder: Center(
-                  child: CircularProgressIndicator(),
-                ),
               );
             }
             return Center(

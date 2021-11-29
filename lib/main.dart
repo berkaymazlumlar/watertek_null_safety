@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:teknoloji_kimya_servis/blocs/auth/auth_bloc.dart';
 import 'package:teknoloji_kimya_servis/blocs/choose_user/choose_user_bloc.dart';

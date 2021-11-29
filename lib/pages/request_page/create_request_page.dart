@@ -18,7 +18,6 @@ import 'package:teknoloji_kimya_servis/pages/work_order/show_work_order_image.da
 import 'package:teknoloji_kimya_servis/repositories/auth/auth_repository.dart';
 import 'package:teknoloji_kimya_servis/utils/locator.dart';
 import 'package:teknoloji_kimya_servis/views/general/my_text_field.dart';
-import 'package:video_compress/video_compress.dart';
 import 'package:video_player/video_player.dart';
 
 ImagePicker _imagePicker = ImagePicker();
@@ -334,9 +333,7 @@ class _CreateRequestPageState extends State<CreateRequestPage> {
               .getDownloadURL();
           print("url: $url");
 
-          await FirebaseFirestore.instance
-              .collection('customer_images')
-              .add(
+          await FirebaseFirestore.instance.collection('customer_images').add(
             {
               "request_id": "$_response",
               "userId": "${_authRepository.apiUser.data.id}",
@@ -357,7 +354,8 @@ class _CreateRequestPageState extends State<CreateRequestPage> {
           EralpHelper.stopProgress();
         }
       }
-    } catch (e) {} finally {
+    } catch (e) {
+    } finally {
       EralpHelper.stopProgress();
     }
   }

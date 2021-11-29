@@ -18,7 +18,9 @@ class PutApi {
   }) async {
     try {
       final _response = await http.put(
-        "${ApiUrls.users}/$id",
+        Uri.parse(
+          "${ApiUrls.users}/$id",
+        ),
         headers: {
           "token": _authRepository.apiUser.token,
         },
@@ -46,7 +48,9 @@ class PutApi {
     try {
       print("${ApiUrls.sparePart}/$id");
       final _response = await http.put(
-        "${ApiUrls.sparePart}/$id",
+        Uri.parse(
+          "${ApiUrls.sparePart}/$id",
+        ),
         headers: {
           "token": _authRepository.apiUser.token,
         },
@@ -72,7 +76,9 @@ class PutApi {
     try {
       print("${ApiUrls.serviceReport}/$id");
       final _response = await http.put(
-        "${ApiUrls.serviceReport}/$id",
+        Uri.parse(
+          "${ApiUrls.serviceReport}/$id",
+        ),
         headers: {
           "token": _authRepository.apiUser.token,
         },
@@ -95,7 +101,9 @@ class PutApi {
       {@required String videoUrl, @required int customerRequestId}) async {
     try {
       final _response = await http.put(
-        "${ApiUrls.customerRequest}/$customerRequestId",
+        Uri.parse(
+          "${ApiUrls.customerRequest}/$customerRequestId",
+        ),
         headers: {
           "token": _authRepository.apiUser.token,
         },
